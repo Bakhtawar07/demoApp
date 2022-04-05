@@ -1,3 +1,4 @@
+import CustomCounter from '@/Components/CustomCounter'
 import React, { useState, createRef } from 'react'
 import {
   StyleSheet,
@@ -10,6 +11,7 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 import Loader from '../../Components/Loader'
@@ -19,6 +21,8 @@ const LoginScreen = ({ navigation }) => {
   const [userEmail, setUserEmail] = useState('')
   const [userPassword, setUserPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
+
 
   const passwordInputRef = createRef()
 
@@ -32,6 +36,7 @@ const LoginScreen = ({ navigation }) => {
       return
     }
     setLoading(true)
+    // dispatch(UserLogin.action(true))
     navigation.replace('DrawerNavigatorRoutes')
   }
 
@@ -46,6 +51,7 @@ const LoginScreen = ({ navigation }) => {
           alignContent: 'center',
         }}
       >
+        <CustomCounter/>
         <View>
           <KeyboardAvoidingView enabled>
             <View style={styles.SectionStyle}>
