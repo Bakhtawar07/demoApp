@@ -12,6 +12,9 @@ import {
 } from 'redux-persist'
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
+import startup from './Startup'
+import counter from './Counter'
+
 
 import { api } from '@/Services/api'
 import * as modules from '@/Services/modules'
@@ -19,6 +22,8 @@ import theme from './Theme'
 
 const reducers = combineReducers({
   theme,
+  startup,
+  counter,
   ...Object.values(modules).reduce(
     (acc, module) => ({
       ...acc,
